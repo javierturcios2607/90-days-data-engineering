@@ -37,5 +37,7 @@ Este repositorio contiene el registro técnico del plan intensivo de 20 semanas 
 - /04-Cloud-Infrastructure: Infraestructura como codigo y orquestacion.
 
 ---
+Notas de Lunes (Semana 1):
+Implementacion de generadores para la optimización de memoria en pipelines de datos.
 Notas de Martes (Semana 1):
 Implementacion de decoradores para monitoreo de ejecucion y context managers para asegurar el cierre de recursos en pipelines de datos.
