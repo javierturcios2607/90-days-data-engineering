@@ -1,0 +1,34 @@
+# --- ENTORNOS VIRTUALES ---
+# Ignoramos la carpeta venv para que no se suba a GitHub
+venv/
+ENV/
+env/
+.env
+
+# --- PYTHON INTERNOS ---
+# Archivos compilados que no sirven de nada en el repo
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- DATOS Y LOGS ---
+# Nunca subimos la data masiva, solo el código que la procesa
+*.csv
+*.json
+*.parquet
+*.log
+*.sqlite
+
+# --- SECRETOS Y CONFIGURACIÓN ---
+# Aquí irán tus llaves de Google Cloud o tokens de API
+.python-version
+credentials.json
+*.pem
+secrets.yaml
+
+# --- SISTEMA OPERATIVO ---
+.DS_Store
+Thumbs.db
