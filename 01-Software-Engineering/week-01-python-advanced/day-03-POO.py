@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 class AlertMixin:
     def send_alert(self, message: str):
         # Aquí conectarías con la API de Slack, SendGrid (Email), PagerDuty, etc.
-        print(f"[ALERTA CRÍTICA] 🚨 Notificando al equipo: {message}")
+        print(f"[ALERTA CRÍTICA]  Notificando al equipo: {message}")
 
 
 # 2. La Clase Base Abstracta (El Molde)
