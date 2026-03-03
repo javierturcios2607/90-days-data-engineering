@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 # 1. El Mixin (Inyección de dependencias mediante herencia múltiple)
 # Es una clase pequeña, diseñada para añadir una funcionalidad muy específica.
 class AlertMixin:
@@ -10,8 +11,7 @@ class AlertMixin:
 
 # 2. La Clase Base Abstracta (El Molde)
 class BaseETL(ABC):
-    
-    def run_pipeline(self):#self es la forma en que un objeto se refiere a sí mismo.
+    def run_pipeline(self):  # self es la forma en que un objeto se refiere a sí mismo.
         """Método orquestador (Patrón Template Method). Define el flujo estándar."""
         print("--- Iniciando Pipeline ---")
         try:
@@ -21,15 +21,19 @@ class BaseETL(ABC):
             print("--- Pipeline Finalizado con Éxito ---\n")
         except Exception as e:
             # Comprobamos si la clase tiene la capacidad de enviar alertas (via Mixin)
-            if hasattr(self, 'send_alert'):#hasattr es una función integrada de Python que significa "has attribute" (¿tiene el atributo?). Se usa para verificar si un objeto tiene un método o una variable específica.
+            if hasattr(
+                self, "send_alert"
+            ):  # hasattr es una función integrada de Python que significa "has attribute" (¿tiene el atributo?). Se usa para verificar si un objeto tiene un método o una variable específica.
                 self.send_alert(f"Fallo en la ejecución: {e}\n")
             else:
-                print(f"[ERROR SILENCIOSO] Falló el pipeline y no hay alerta configurada: {e}\n")
+                print(
+                    f"[ERROR SILENCIOSO] Falló el pipeline y no hay alerta configurada: {e}\n"
+                )
 
     # Definimos los "contratos". Cualquier clase hija ESTÁ OBLIGADA a escribir estos métodos.
     @abstractmethod
     def extract(self):
-        pass #Como en Python los bloques de código se definen por sangría, no puedes dejar un método vacío. pass es decirle a Python: "No hagas nada, solo estoy ocupando el espacio para que no de error".
+        pass  # Como en Python los bloques de código se definen por sangría, no puedes dejar un método vacío. pass es decirle a Python: "No hagas nada, solo estoy ocupando el espacio para que no de error".
 
     @abstractmethod
     def transform(self, data):
@@ -41,6 +45,7 @@ class BaseETL(ABC):
 
 
 # 3. Clases Específicas (Herencia Múltiple y Polimorfismo)
+
 
 # Hereda primero de AlertMixin (para inyectar la alerta) y luego de BaseETL (para la estructura)
 class ApiETL(AlertMixin, BaseETL):
@@ -59,8 +64,6 @@ class ApiETL(AlertMixin, BaseETL):
 
     def load(self, data):
         print("Insertando datos de la API en la base de datos...")
-
-
 
 
 class DbETL(AlertMixin, BaseETL):

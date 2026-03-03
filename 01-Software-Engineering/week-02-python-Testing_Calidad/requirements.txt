@@ -1,0 +1,11 @@
+# --- Librerías de Producción ---
+requests==2.31.0
+
+# --- Herramientas de Desarrollo y Testing ---
+pytest==8.0.0
+pytest-cov==4.1.0      # Para medir el 90% de cobertura
+black==24.1.1           # Formateador de código
+flake8==7.0.0           # Linter para estilo de código
+mypy==1.8.0             # Verificador de tipos estáticos
+types-requests==2.31.0  # Tipos para que MyPy entienda requests
+pre-commit==3.6.0       # Para automatizar la calidad antes del commit
