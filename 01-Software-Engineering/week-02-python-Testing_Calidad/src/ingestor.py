@@ -1,7 +1,7 @@
 import requests
 
 
-class DataIngestor:
+class ClimaAPIIngestor:
     def __init__(self, api_url: str):
         self.api_url = api_url
 
@@ -19,4 +19,5 @@ class DataIngestor:
         """Lógica simple para limpiar los datos (ejemplo)."""
         if not data or "items" not in data:
             return []
-        return [item.upper() for item in data["items"]]
+        # Convierte a mayúsculas cada item en la lista
+        return [item.upper() for item in data.get("items", [])]
