@@ -1,0 +1,22 @@
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  \.git
+  | \.mypy_cache
+  | \.venv
+)/
+'''
+
+[tool.mypy]
+# Configuración Senior para MyPy
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+# Obliga a que tus funciones en 'src' tengan tipos (int, str, etc.)
+disallow_untyped_defs = true
+ignore_missing_imports = true
+# Le decimos a MyPy dónde buscar tu código según tu captura
+files = ["src"]
